@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Viewer</title>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <link rel="stylesheet" href="/style.css">
+  <!-- Need to update with own CDN while production deployment-->
+  <script src="https://cdn.babylonjs.com/babylon.js"></script>
+  <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+  <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.js"></script>
+</head>
+<body>
+  <div id ="mainmenu">
+  <h>To generate 3dviewer image from the video</h>
+  <p>uploadVideo
+    <form>
+      <label for="file">File</label>
+      <input type="file" id="file" />
+      <button type ="button"onclick="uploadVideo()">Upload</button>
+    </form>
+  </p>
+  <p>capturevideo
+    <button type ="button" id ="captureVideo" onClick="captureVideo()">capturevideo</button>
+  </p>
+</div>
+  <div id =overlay>
+  <button id="start-camera" hidden="true">Start Camera</button>
+<video id="video" muted autoplay></video>
+  <video id="videoPlayer" autoplay muted  controls ></video>
+<button id="start-record">Start Recording</button>
+<button id="stop-record" disabled>Stop Recording</button>
+<a id="download-video"  hidden="true" download="test.webm">Download Video</a>
+<button id ="capture" hidden ="true" onclick="capture()">Capture</button>
+<button id ="core" hidden ="true"onclick="BabylonCore()">Proceed</button>
+<canvas id="canvas" hidden="true"style="overflow:auto"></canvas>
+<canvas id="renderCanvas"></canvas>
+</div>
+  <script  src="main.js"></script>
+</body>
+</html>
+
+
+
