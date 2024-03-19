@@ -34,7 +34,7 @@ fs.writeFileSync(tempFilePath, buffer);
         const dataURL = `data:image/png;base64,${buffer1.toString("base64")}`;
        // console.log(dataURL);
         // Send the processed image as response
-        res.status(200).send(dataURL);
+        res.send(dataURL);
         //console.log(res.send(dataURL));
     } catch (error) {
         console.error('Error removing background:', error);

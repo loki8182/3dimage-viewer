@@ -166,7 +166,7 @@ function BabylonCore () {
       var light = new BABYLON.HemisphericLight('Light', new BABYLON.Vector3(50,50,5), scene);
       light.intensity = 2;
       
-      var plane = new BABYLON.MeshBuilder.CreateBox('Box', {
+      var plane = new BABYLON.MeshBuilder.CreatePlane('Plane', {
                   'width' : 10,
                   'height' : 10,
                   'depth' : 0.0001,
@@ -295,7 +295,7 @@ playvideo.addEventListener('play', () => {
                 // You can manipulate or save this data as needed
 
                 // Move to the next frame
-                setTimeout(captureFrame, (1000/4) / playvideo.playbackRate);
+                setTimeout(captureFrame, (1000/7) / playvideo.playbackRate);
             };
             captureFrame();
             // Set canvas dimensions to match video
@@ -335,7 +335,7 @@ async function imageEditing(){
             throw new Error('Failed to upload image.');
         }
     
-        const result = await response.text;
+        const result = await response.text();
         // Handle the result, such as displaying it in an <img> element
         console.log('Processed image:', result);
         imagescaptured1.push(result);
@@ -349,23 +349,3 @@ async function imageEditing(){
      console.log(imagescaptured1.length);
      BabylonCore();
 }
-
-
-// const uploadFile = async (file) => {
-//     const base64Data=file;
-//     const response = await fetch('http://localhost:3000/remove-background', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({ image: base64Data })
-//     });
-
-//     if (!response.ok) {
-//         throw new Error('Failed to upload image.');
-//     }
-
-//     const result = await response.blob();
-//     // Handle the result, such as displaying it in an <img> element
-//     console.log('Processed image:', result);
-// };
